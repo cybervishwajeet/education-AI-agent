@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Sidebar from "./Sidebar";
+import React from "react";
 import DashboardContent from "./DashboardContent";
 import { motion } from "framer-motion";
 
@@ -12,22 +11,9 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({
   userName = "User",
   educationField = "Computer Science",
-  isCollapsed = false,
 }) => {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(isCollapsed);
-
-  const toggleSidebar = () => {
-    setSidebarCollapsed(!sidebarCollapsed);
-  };
-
   return (
-    <div className="flex h-full bg-background dark:bg-slate-900">
-      <Sidebar
-        userName={userName}
-        educationField={educationField}
-        isCollapsed={sidebarCollapsed}
-        onToggle={toggleSidebar}
-      />
+    <div className="h-full bg-slate-900">
       <motion.div
         className="flex-1"
         initial={{ opacity: 0 }}
