@@ -12,6 +12,13 @@ import {
   Award,
   FileText,
   Briefcase,
+  Globe,
+  Rocket,
+  Zap,
+  Users,
+  BarChart,
+  Lightbulb,
+  Layers,
 } from "lucide-react";
 
 import AuthForm from "./auth/AuthForm";
@@ -21,6 +28,7 @@ import LearningPath from "./learning/LearningPath";
 import QuizModule from "./quiz/QuizModule";
 import ProfileSettings from "./profile/ProfileSettings";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 
 const Home: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -139,7 +147,16 @@ const Home: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-b from-background to-background/80 dark:from-slate-900 dark:to-slate-800">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-between items-center mb-4">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-2"
+            >
+              <Sparkles className="h-6 w-6 text-primary" />
+              <span className="font-bold text-xl">EduAI</span>
+            </motion.div>
             <Button
               variant="ghost"
               size="icon"
@@ -157,19 +174,42 @@ const Home: React.FC = () => {
             </Button>
           </div>
 
-          <header className="text-center mb-12">
+          <header className="text-center mb-12 mt-16">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              <h1 className="text-5xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                 AI-Powered Learning Platform
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Personalized education tailored to your needs with AI-generated
                 learning paths and intelligent assistance.
               </p>
+              <div className="flex justify-center gap-3 mt-6">
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1 text-sm bg-primary/5"
+                >
+                  <Rocket className="h-3.5 w-3.5 mr-1" />
+                  Interactive Roadmaps
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1 text-sm bg-primary/5"
+                >
+                  <Zap className="h-3.5 w-3.5 mr-1" />
+                  AI-Powered
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1 text-sm bg-primary/5"
+                >
+                  <Globe className="h-3.5 w-3.5 mr-1" />
+                  Curated Resources
+                </Badge>
+              </div>
             </motion.div>
           </header>
 
@@ -187,6 +227,7 @@ const Home: React.FC = () => {
                 </h2>
                 <ul className="space-y-3">
                   {[
+                    "Interactive roadmaps from roadmap.sh integration",
                     "AI-generated learning paths based on your field",
                     "Intelligent chatbot for subject-related questions",
                     "Personalized quizzes to test your knowledge",
@@ -208,6 +249,52 @@ const Home: React.FC = () => {
                   ))}
                 </ul>
               </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-card dark:bg-slate-800/50 p-4 rounded-lg border shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3">
+                    <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="font-medium mb-1">Community Learning</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Connect with peers and learn together through collaborative
+                    projects.
+                  </p>
+                </div>
+
+                <div className="bg-card dark:bg-slate-800/50 p-4 rounded-lg border shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-3">
+                    <BarChart className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <h3 className="font-medium mb-1">Progress Analytics</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Track your learning journey with detailed analytics and
+                    insights.
+                  </p>
+                </div>
+
+                <div className="bg-card dark:bg-slate-800/50 p-4 rounded-lg border shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-3">
+                    <Lightbulb className="h-5 w-5 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="font-medium mb-1">AI Recommendations</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Get personalized content recommendations based on your
+                    interests.
+                  </p>
+                </div>
+
+                <div className="bg-card dark:bg-slate-800/50 p-4 rounded-lg border shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-3">
+                    <Layers className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <h3 className="font-medium mb-1">Career Pathways</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Explore different career paths and required skills for each
+                    role.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -218,6 +305,12 @@ const Home: React.FC = () => {
             >
               <AuthForm onSubmit={handleAuthSubmit} />
             </motion.div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-sm text-muted-foreground">
+              © 2023 EduAI Platform. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
@@ -238,7 +331,10 @@ const Home: React.FC = () => {
               <Menu className="h-6 w-6" />
             )}
           </Button>
-          <h1 className="text-xl font-bold ml-2">EduAI Platform</h1>
+          <div className="flex items-center ml-2">
+            <Sparkles className="h-5 w-5 text-primary mr-1.5" />
+            <h1 className="text-xl font-bold">EduAI</h1>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           <Button
@@ -302,7 +398,10 @@ const Home: React.FC = () => {
         <div className="hidden lg:block">
           <div className="w-64 h-screen border-r bg-background dark:bg-slate-900 fixed left-0 top-0 z-30">
             <div className="flex items-center justify-between p-4 border-b">
-              <h1 className="text-xl font-bold">EduAI Platform</h1>
+              <div className="flex items-center">
+                <Sparkles className="h-5 w-5 text-primary mr-1.5" />
+                <h1 className="text-xl font-bold">EduAI</h1>
+              </div>
               <Button
                 variant="ghost"
                 size="icon"
