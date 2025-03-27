@@ -52,9 +52,9 @@ const DifficultyBadge = ({
   difficulty: Resource["difficulty"];
 }) => {
   const colorMap = {
-    beginner: "bg-green-100 text-green-800",
-    intermediate: "bg-blue-100 text-blue-800",
-    advanced: "bg-purple-100 text-purple-800",
+    beginner: "bg-green-900/50 text-green-300 border-green-700",
+    intermediate: "bg-blue-900/50 text-blue-300 border-blue-700",
+    advanced: "bg-purple-900/50 text-purple-300 border-purple-700",
   };
 
   return (
@@ -69,7 +69,7 @@ const DifficultyBadge = ({
 
 const ResourceCard = ({ resource }: { resource: Resource }) => {
   return (
-    <Card className="h-full flex flex-col bg-white hover:shadow-md transition-shadow duration-200">
+    <Card className="h-full flex flex-col bg-slate-800 hover:shadow-md transition-shadow duration-200 border-slate-700">
       <div className="relative h-40 overflow-hidden rounded-t-xl">
         <img
           src={resource.imageUrl}
@@ -79,23 +79,23 @@ const ResourceCard = ({ resource }: { resource: Resource }) => {
       </div>
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
-          <CardTitle className="text-lg font-bold line-clamp-1">
+          <CardTitle className="text-lg font-bold line-clamp-1 text-white">
             {resource.title}
           </CardTitle>
           <DifficultyBadge difficulty={resource.difficulty} />
         </div>
-        <CardDescription className="line-clamp-2">
+        <CardDescription className="line-clamp-2 text-slate-400">
           {resource.description}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+        <div className="flex items-center gap-2 text-sm text-slate-400 mb-2">
           <ResourceTypeIcon type={resource.type} />
           <span className="capitalize">{resource.type}</span>
           <span className="mx-1">•</span>
           <span>{resource.source}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-sm text-slate-400">
           <Clock className="h-4 w-4" />
           <span>{resource.duration}</span>
           <span className="mx-1">•</span>
@@ -106,7 +106,11 @@ const ResourceCard = ({ resource }: { resource: Resource }) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" className="w-full" asChild>
+        <Button
+          variant="outline"
+          className="w-full bg-slate-700 text-white border-slate-600 hover:bg-slate-600"
+          asChild
+        >
           <a
             href={resource.url}
             target="_blank"
@@ -185,10 +189,12 @@ const RecommendedContent = ({
   description = "AI-curated content based on your learning preferences and education field",
 }: RecommendedContentProps) => {
   return (
-    <div className="w-full bg-gray-50 p-6 rounded-xl">
+    <div className="w-full bg-slate-800/50 p-6 rounded-xl border border-slate-700">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
-        <p className="text-muted-foreground mt-1">{description}</p>
+        <h2 className="text-2xl font-bold tracking-tight text-white">
+          {title}
+        </h2>
+        <p className="text-slate-400 mt-1">{description}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

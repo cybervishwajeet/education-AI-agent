@@ -4,6 +4,9 @@ import Home from "./components/home";
 import routes from "tempo-routes";
 
 function App() {
+  // Apply dark mode class to document element
+  document.documentElement.classList.add("dark");
+
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <>

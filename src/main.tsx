@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
+// Dark theme is applied via CSS
+
 import { TempoDevtools } from "tempo-devtools";
 TempoDevtools.init();
 

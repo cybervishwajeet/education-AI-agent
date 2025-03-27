@@ -77,27 +77,30 @@ const TrendingNews = ({
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "technology":
-        return "text-blue-500";
+        return "text-blue-400";
       case "course":
-        return "text-green-500";
+        return "text-green-400";
       case "programming":
-        return "text-purple-500";
+        return "text-purple-400";
       case "career":
-        return "text-orange-500";
+        return "text-amber-400";
       default:
-        return "text-gray-500";
+        return "text-slate-400";
     }
   };
 
   return (
-    <Card className="w-full h-full bg-white overflow-hidden">
+    <Card className="w-full h-full bg-slate-800 overflow-hidden border-slate-700">
       <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
         <CardTitle className="text-xl font-bold">{title}</CardTitle>
       </CardHeader>
       <CardContent className="p-4 overflow-y-auto max-h-[400px]">
         <div className="space-y-4">
           {items.map((item) => (
-            <div key={item.id} className="border-b pb-3 last:border-0">
+            <div
+              key={item.id}
+              className="border-b border-slate-700 pb-3 last:border-0"
+            >
               <div className="flex items-center mb-1">
                 <span
                   className={`flex items-center text-sm font-medium ${getCategoryColor(item.category)}`}
@@ -107,12 +110,14 @@ const TrendingNews = ({
                     item.category.slice(1)}
                 </span>
               </div>
-              <h3 className="font-semibold text-base mb-1">{item.title}</h3>
-              <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+              <h3 className="font-semibold text-base mb-1 text-white">
+                {item.title}
+              </h3>
+              <p className="text-sm text-slate-400 mb-2">{item.description}</p>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-indigo-600 p-0 h-auto font-medium flex items-center hover:text-indigo-800 hover:bg-transparent"
+                className="text-indigo-400 p-0 h-auto font-medium flex items-center hover:text-indigo-300 hover:bg-transparent"
                 onClick={() => window.open(item.url, "_blank")}
               >
                 Learn more
@@ -122,11 +127,11 @@ const TrendingNews = ({
           ))}
         </div>
       </CardContent>
-      <CardFooter className="bg-gray-50 border-t p-3">
+      <CardFooter className="bg-slate-700 border-t border-slate-600 p-3">
         <Button
           variant="outline"
           size="sm"
-          className="text-sm w-full"
+          className="text-sm w-full bg-slate-700 text-white border-slate-600 hover:bg-slate-600"
           onClick={() =>
             window.open("https://example.com/all-trends", "_blank")
           }
