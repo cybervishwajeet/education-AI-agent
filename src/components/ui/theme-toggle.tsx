@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
+  // No toggle functionality - only dark mode
   return (
     <Button
       variant="ghost"
